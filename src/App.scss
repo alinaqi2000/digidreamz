@@ -1,9 +1,6 @@
-$primaryColor: #e76f51;
-$secondaryColor: #2a9d8f;
+@import "./styles/init";
 
-h3 {
-  color: $primaryColor;
-}
-h4 {
-  color: $secondaryColor;
+.App {
+  height: 100vh;
+  background-color: var(--primary-background-color);
 }

@@ -1,0 +1,15 @@
+@import "../init";
+.site-name {
+  font-size: 30px;
+  color: var(--primary-color);
+  text-align: center;
+}
+.auth-box {
+  box-shadow: $boxShadow;
+  padding: $boxPadding;
+  border-radius: $boxRadius;
+  background-color: var(--box-background-color);
+  h4 {
+    color: --generalTextColor;
+  }
+}

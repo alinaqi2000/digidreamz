@@ -1,6 +1,25 @@
+@import "./styles/init";
+
 body {
   margin: 0;
-  font-family: Nunito, Helvetica Neue, Helvetica, Arial, sans-serif;
+  background-color: var(--primary-background-color);
+  font-family: $fontFamily;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+input {
+  font-family: $fontFamily;
+  color: var(--general-text-color);
+}
+div,
+nav,
+header {
+  transition: color $themeTrasition ease, background-color $themeTrasition ease;
 }
