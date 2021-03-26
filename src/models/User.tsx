@@ -1,7 +1,15 @@
+interface AuthToken {
+    apiKey: string,
+    refreshToken: string,
+    accessToken: string,
+    expirationTime: string,
+}
 export class User {
     constructor(
-        public _id: string,
-        public name: string,
-        public email: string
+        public uid: string = "",
+        public displayName: string = "",
+        public photoURL: string = "",
+        public email: string = "",
+        public stsTokenManager: AuthToken = { apiKey: "", accessToken: "", expirationTime: "", refreshToken: "" },
     ) { }
 }

@@ -25,7 +25,7 @@ header {
     border-radius: $boxRadius;
     h4 {
       font-size: $headingText;
-      font-weight: 600;
+      // font-weight: 600;
       color: var(--primary-color);
     }
     h5 {
@@ -33,6 +33,22 @@ header {
       font-weight: 500;
       margin: 10px 0px 24px;
       color: var(--general-text-color);
+    }
+    .divider {
+      color: var(--general-text-color);
+      margin: 30px;
+      display: flex;
+      align-items: center;
+
+      h5 {
+        opacity: 0.7;
+        margin: 0px 20px;
+      }
+      span {
+        width: 100%;
+        height: 1px;
+        background-color: var(--border-color);
+      }
     }
   }
 }

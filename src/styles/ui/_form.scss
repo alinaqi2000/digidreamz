@@ -14,7 +14,6 @@ select:-webkit-autofill:focus {
   // box-shadow: 2px 4px 16px rgb(0 0 0 / 10%);
   display: flex;
   flex-flow: column-reverse;
-  margin-bottom: 1em;
   label,
   .input {
     transition: all 0.2s;
@@ -37,13 +36,13 @@ select:-webkit-autofill:focus {
     font-family: inherit;
     -webkit-appearance: none;
     padding: 10px;
-    cursor: text;
+    // cursor: text;
     &:focus {
       outline: 0;
       border-bottom: 3px solid var(--primary-color);
     }
     &:placeholder-shown + label {
-      cursor: text;
+      // cursor: text;
       max-width: 66.66%;
       white-space: nowrap;
       overflow: hidden;
@@ -55,15 +54,22 @@ select:-webkit-autofill:focus {
       opacity: 1;
     }
     &:not(:placeholder-shown) + label,
-    &:focus + label {
+    &:focus + label,
+    &:hover + label,
+    & + label:hover {
       color: var(--primary-color);
       top: 6px;
       transform: translate(0, 0.4rem) scale(1);
-      cursor: pointer;
+      // cursor: pointer;
     }
   }
 }
 ::-webkit-input-placeholder {
   opacity: 0;
   transition: inherit;
+}
+.error {
+  font-size: calc(0.6rem + 0.5vw);
+  margin: 0;
+  color: var(--danger-color);
 }

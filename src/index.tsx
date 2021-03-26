@@ -4,10 +4,15 @@ import { Provider } from 'react-redux';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './store/index';
+import store, { rrfProps } from './store/index';
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <App />
+    </ReactReduxFirebaseProvider>
+
   </Provider>,
   document.getElementById('root')
 );

@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Carousel, Row, Col } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../store';
 import { MyAppState } from '../../store/reducers/appReducer';
-import { SwitchTheme } from '../../store/actions/app';
-import SignUpImg from '../../assets/img/signup.svg';
+import { SwitchTheme, TogglePreloader } from '../../store/actions/app';
 import IdeaImg from '../../assets/img/ideas.svg';
 import DiscussImg from '../../assets/img/discuss.svg';
 import PrivacyImg from '../../assets/img/privacy.svg';
 
-export default function Auth(props: { children: JSX.Element }) {
-    const app: MyAppState = useSelector((state: AppState) => state.app)
+import { navigate } from '@reach/router';
+
+interface Props {
+    children: JSX.Element[]
+}
+
+export default function Auth(props: Props) {
+    const app: MyAppState = useSelector((state: AppState) => state.app);
+    const firebase = useSelector((state: AppState) => state.firebase);
     const dispatch = useDispatch();
-    const changeTheme = () => {
-        dispatch({ ...new SwitchTheme() })
-    }
+
+    useEffect(() => {
+        if (firebase.auth.isLoaded)
+            dispatch({ ...new TogglePreloader(false) });
+        if (firebase.auth.isLoaded && !firebase.auth.isEmpty)
+            navigate("/");
+    }, [firebase.auth]);
     return (
         <React.Fragment>
             <header>
@@ -25,7 +35,7 @@ export default function Auth(props: { children: JSX.Element }) {
 
                             <div className="theme__switcher">
                                 <div className="checkbox">
-                                    <input type="checkbox" onChange={changeTheme} id="theme_switcher" checked={app.theme === "light"} />
+                                    <input type="checkbox" onChange={() => dispatch({ ...new SwitchTheme() })} id="theme_switcher" checked={app.theme === "light"} />
                                     <label htmlFor="theme_switcher"></label>
                                 </div>
                             </div>
@@ -87,6 +97,5 @@ export default function Auth(props: { children: JSX.Element }) {
                 </Row>
             </Container>
         </React.Fragment>
-
     )
 }

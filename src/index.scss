@@ -16,9 +16,12 @@ h4,
 h5,
 h6,
 label,
-input {
+input,
+span,
+p {
   font-family: $fontFamily;
   color: var(--general-text-color);
+  transition: color $themeTrasition ease, background-color $themeTrasition ease;
 }
 div,
 nav,
@@ -45,4 +48,7 @@ header {
   img {
     width: 80px;
   }
+}
+.app-content {
+  margin-top: 150px !important;
 }

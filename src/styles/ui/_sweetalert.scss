@@ -1,0 +1,21 @@
+.swal2-popup {
+  background-color: var(--primary-background-color) !important;
+  .swal2-title,
+  .swal2-content {
+    color: var(--general-text-color) !important;
+  }
+  $primaryCol: var(--primary-color);
+  .swal2-confirm {
+    background-color: $primaryCol !important;
+    border-color: var(--primary-color) !important;
+    transition: all $buttonTransiotnDuration !important;
+    border-radius: $boxRadius !important;
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--secondary-color) !important;
+      background-color: var(--secondary-color) !important;
+      box-shadow: $boxShadow !important;
+    }
+  }
+}

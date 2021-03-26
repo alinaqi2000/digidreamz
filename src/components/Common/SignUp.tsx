@@ -1,36 +1,74 @@
-import { RouteComponentProps } from '@reach/router'
-import React from 'react'
+import React, { useState } from 'react'
+import { navigate, RouteComponentProps } from '@reach/router'
 import Auth from '../Layouts/Auth'
 import { Form, Button } from 'react-bootstrap';
+import firebase from 'firebase';
+import Title from '../UI/Title';
+import { useForm } from "react-hook-form";
+import { useFirebase } from 'react-redux-firebase';
+import { AlertMessage } from '../UI/AlertMessage';
+interface SignUpForm {
+    username: string;
+    email: string;
+    password: string;
+}
 
 export default function SignUp(props: RouteComponentProps) {
+    const { register, errors, handleSubmit } = useForm<SignUpForm>();
+    const fireB = useFirebase();
+    const goggleAuth = () => {
+        const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(googleAuthProvider).then((resp) => {
+            navigate("/");
+        }).catch(error => {
+        });
+    }
+    const submitSignUp = (data: SignUpForm) => {
+        fireB.createUser(
+            { signIn: false, email: data.email, password: data.password, },
+            { displayName: data.username }
+        ).then(console.log)
+            .catch((error) => AlertMessage({ type: "msg", title: "Oops...", icon: "error", text: error.message }));
+
+    }
     return (
         <Auth>
+            <Title title="Sign Up" />
 
             <div className="auth-box">
                 <h4>Hello!</h4>
                 <h5>Sign up to find people who will help to full fill your dreams</h5>
-                <Form>
-                    {/* <Form.Group controlId="formBasicEmail"> */}
+                <Form onSubmit={handleSubmit(submitSignUp)}>
                     <div className="input-text">
-                        <input type="email" autoComplete="off" className="input" id="email" placeholder="jane.appleseed@example.com" />
+                        <input type="text" name="username" ref={register({ required: true, maxLength: 20 })} autoComplete="off" className="input" id="username" placeholder="Jane Doe" />
+                        <label htmlFor="text">Full Name</label>
+                    </div>
+                    {errors.username && <p className="error">Your full name is required</p>}
+                    <div className="input-text">
+                        <input type="email" name="email" ref={register({ required: true })} autoComplete="off" className="input" id="email" placeholder="jane.appleseed@example.com" />
                         <label htmlFor="email">Email</label>
                     </div>
-                    {/* </Form.Group> */}
+                    {errors.email && <p className="error">Your email address is required</p>}
+
                     <div className="input-text">
-                        <input type="password" autoComplete="off" className="input" id="email" placeholder="Password" />
-                        <label htmlFor="email">Password</label>
+                        <input type="password" name="password" ref={register({ required: true })} autoComplete="off" className="input" id="password" placeholder="Password" />
+                        <label htmlFor="password">Password</label>
                     </div>
-                    <Button className="btn-block" type="button">
+                    {errors.password && <p className="error">Your email address is required</p>}
+
+                    <Button className="btn-block mt-4" type="submit">
                         Sign Up
                     </Button>
-                    <span>OR</span>
-                    <Button className="btn-block" type="button">
+                    <div className="divider">
+                        <span></span>
+                        <h5>OR</h5>
+                        <span></span>
+                    </div>
+                    <Button onClick={goggleAuth} className="btn-block" variant="outline-primary" type="button">
                         Sign In with Google
                     </Button>
                 </Form>
             </div>
-
         </Auth>
     )
 }
