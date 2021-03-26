@@ -1,0 +1,42 @@
+.carousel {
+  overflow: hidden;
+  padding: 145px 10px 110px;
+  .carousel-indicators {
+    bottom: -20px;
+    li {
+      background-color: var(--secondary-color);
+      &.active {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+  .carousel-inner {
+    overflow: visible;
+    .carousel-item {
+      img {
+        position: relative;
+        top: 70px;
+        height: 50vh;
+        margin-bottom: 20px;
+      }
+      .carousel-caption {
+        top: -50px;
+        left: 0px;
+        bottom: auto;
+        text-align: left;
+        h3 {
+          font-size: $headingText;
+          color: var(--primary-color);
+        }
+        p {
+          font-size: $generalText;
+          color: var(--general-text-color);
+        }
+      }
+    }
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}

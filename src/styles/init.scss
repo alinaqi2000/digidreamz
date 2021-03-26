@@ -1,3 +1,9 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Kiwi+Maru&display=swap");
 @import "variables";
 @import "./ui/buttons";
 @import "./ui/navbar";
+@import "./ui/form";
+
+@import "./ui/carousel";
+@import "./auth/auth";

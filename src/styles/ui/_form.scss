@@ -1,0 +1,69 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px var(--primary-background-color) inset !important;
+  -webkit-text-fill-color: var(--general-text-color) !important;
+}
+.input-text {
+  // box-shadow: 2px 4px 16px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+  label,
+  .input {
+    transition: all 0.2s;
+    touch-action: manipulation;
+  }
+  label {
+    margin: 0;
+    font-size: 16px;
+    margin-left: 8px;
+    color: var(--secondary-color);
+    position: relative;
+    top: 8px;
+  }
+  .input {
+    color: var(--general-text-color) !important;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 3px solid var(--border-color);
+    font-size: 1em;
+    font-family: inherit;
+    -webkit-appearance: none;
+    padding: 10px;
+    cursor: text;
+    &:focus {
+      outline: 0;
+      border-bottom: 3px solid var(--primary-color);
+    }
+    &:placeholder-shown + label {
+      cursor: text;
+      max-width: 66.66%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform-origin: left bottom;
+      transform: translate(0, 2.125rem) scale(1.2);
+    }
+    &:focus::-webkit-input-placeholder {
+      opacity: 1;
+    }
+    &:not(:placeholder-shown) + label,
+    &:focus + label {
+      color: var(--primary-color);
+      top: 6px;
+      transform: translate(0, 0.4rem) scale(1);
+      cursor: pointer;
+    }
+  }
+}
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}

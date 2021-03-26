@@ -6,27 +6,28 @@ import { Form, Button } from 'react-bootstrap';
 export default function SignUp(props: RouteComponentProps) {
     return (
         <Auth>
-            <div className="auth-box">
-                <h4 className="text-center">Sign Up</h4>
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                    </Form.Text>
-                    </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button className="btn-block" type="submit">
-                        Submit
-                </Button>
+            <div className="auth-box">
+                <h4>Hello!</h4>
+                <h5>Sign up to find people who will help to full fill your dreams</h5>
+                <Form>
+                    {/* <Form.Group controlId="formBasicEmail"> */}
+                    <div className="input-text">
+                        <input type="email" autoComplete="off" className="input" id="email" placeholder="jane.appleseed@example.com" />
+                        <label htmlFor="email">Email</label>
+                    </div>
+                    {/* </Form.Group> */}
+                    <div className="input-text">
+                        <input type="password" autoComplete="off" className="input" id="email" placeholder="Password" />
+                        <label htmlFor="email">Password</label>
+                    </div>
+                    <Button className="btn-block" type="button">
+                        Sign Up
+                    </Button>
+                    <span>OR</span>
+                    <Button className="btn-block" type="button">
+                        Sign In with Google
+                    </Button>
                 </Form>
             </div>
 

@@ -1,5 +1,9 @@
 // Font Family
-$fontFamily: Nunito, Helvetica Neue, Helvetica, Arial, sans-serif;
+$fontFamily: "Balsamiq Sans", cursive;
+// Font Sizes
+$generalText: calc(0.8em + 0.8vw);
+$headingText: calc(1.3em + 1.3vw);
+$paragraphText: calc(0.6em + 0.6vw);
 // Transitions
 $themeTrasition: 0.75s;
 
@@ -8,8 +12,9 @@ $themeTrasition: 0.75s;
   --primary-color: #e76f51;
   --primary-background-color: #ffffff;
   --secondary-color: #dea47e;
-  --box-background-color: #f9f9f9;
-  --navbar-background-color: #f9f9f9;
+  --border-color: #dddddd;
+  --box-background-color: #fbfafa;
+  --navbar-background-color: #fffcfc;
   --general-text-color: #000000;
 }
 
@@ -17,16 +22,17 @@ $themeTrasition: 0.75s;
   --primary-color: #e76f51;
   --primary-background-color: #181818;
   --secondary-color: #dea47e;
+  --border-color: #242424;
   --navbar-background-color: #211b1a;
   --box-background-color: #211b1a;
   --general-text-color: #ffffff;
 }
 
 // Paddings
-$boxPadding: 20px;
+$boxPadding: 30px 25px;
 
 // Shadows
-$boxShadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+$boxShadow: 0px 0px 26px rgb(0 0 0 / 10%);
 
 // Radiuses
 $boxRadius: 15px;

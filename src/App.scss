@@ -1,6 +1,9 @@
-@import "./styles/init";
-
 .App {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  float: left;
+  position: relative;
+  top: 0;
   background-color: var(--primary-background-color);
 }

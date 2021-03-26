@@ -1,15 +1,38 @@
-@import "../init";
-.site-name {
-  font-size: 30px;
-  color: var(--primary-color);
-  text-align: center;
-}
-.auth-box {
+header {
+  // border-bottom: 1px solid var(--border-color);
+  background: var(--box-background-color);
   box-shadow: $boxShadow;
-  padding: $boxPadding;
-  border-radius: $boxRadius;
-  background-color: var(--box-background-color);
-  h4 {
-    color: --generalTextColor;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99999;
+  .site-name {
+    font-size: 30px;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 0;
+  }
+}
+.page-content {
+  margin-top: 55px;
+}
+.auth-content {
+  .auth-side {
+    margin-top: 80px;
+    background: var(--box-background-color);
+    box-shadow: $boxShadow;
+    padding: $boxPadding;
+    border-radius: $boxRadius;
+    h4 {
+      font-size: $headingText;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    h5 {
+      font-size: $paragraphText;
+      font-weight: 500;
+      margin: 10px 0px 24px;
+      color: var(--general-text-color);
+    }
   }
 }
