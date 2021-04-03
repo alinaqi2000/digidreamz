@@ -1,11 +1,11 @@
 import { Action } from "redux";
-import { User } from "../../models/User";
 // Theme
 export const SET_THEME = "[Theme] Set Theme";
 export const SWITCH_THEME = "[Theme] Switch Theme";
 export const TOGGLE_PRELOADER = "[Theme] Toggle Preloader";
-// User
-export const SET_USER = "[User] Set User";
+export const TOGGLE_LEFT_SIDEBAR = "[Theme] Toggle Left Sidebar";
+export const TOGGLE_RIGHT_SIDEBAR = "[Theme] Toggle Right Sidebar";
+export const TOGGLE_SIDEBARS = "[Theme] Toggle Sidebars";
 
 // Theme
 export class SetTheme implements Action {
@@ -18,9 +18,13 @@ export class TogglePreloader implements Action {
   readonly type = TOGGLE_PRELOADER;
   constructor(public payload: boolean) { }
 }
-// User
-export class SetUser implements Action {
-  readonly type = SET_USER;
-  constructor(public payload: User) { }
+export class ToggleLeftSidebar implements Action {
+  readonly type = TOGGLE_LEFT_SIDEBAR;
 }
-export type AppActions = SetTheme | SwitchTheme | TogglePreloader | SetUser;
+export class ToggleRightSidebar implements Action {
+  readonly type = TOGGLE_RIGHT_SIDEBAR;
+}
+export class ToggleSidebars implements Action {
+  readonly type = TOGGLE_SIDEBARS;
+}
+export type AppActions = SetTheme | SwitchTheme | TogglePreloader | ToggleLeftSidebar | ToggleRightSidebar | ToggleSidebars;

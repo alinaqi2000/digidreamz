@@ -1,31 +1,28 @@
-$buttonTransiotnDuration: 0.4s;
-
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  transition: all $buttonTransiotnDuration;
-  border-radius: $boxRadius;
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: var(--secondary-color) !important;
-    background-color: var(--secondary-color) !important;
-    box-shadow: $boxShadow !important;
-  }
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all $buttonTransiotnDuration;
+    border-radius: $boxRadius;
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--secondary-color) !important;
+        background-color: var(--secondary-color) !important;
+        box-shadow: $boxShadow !important;
+    }
 }
 
 .btn-outline-primary {
-  background-color: transparent;
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-  transition: all $buttonTransiotnDuration;
-  border-radius: $boxRadius;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: var(--secondary-color) !important;
-    background-color: var(--secondary-color) !important;
-    box-shadow: $boxShadow !important;
-  }
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all $buttonTransiotnDuration;
+    border-radius: $boxRadius;
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--secondary-color) !important;
+        background-color: var(--secondary-color) !important;
+        box-shadow: $boxShadow !important;
+    }
 }

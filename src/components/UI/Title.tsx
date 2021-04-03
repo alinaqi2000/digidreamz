@@ -9,7 +9,7 @@ export default function Title(props: { title: string }) {
     const app: MyAppState = useSelector((state: AppState) => state.app);
     return (
         <Helmet>
-            <title>{process.env.REACT_APP_SITE_NAME} - {props.title}</title>
+            <title>{props.title} - {process.env.REACT_APP_SITE_NAME}</title>
             <link rel="icon" href={app.theme == "dark" ? DarkFavIcon : LightFavIcon} />
         </Helmet>
     )

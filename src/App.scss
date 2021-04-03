@@ -1,10 +1,11 @@
 .App {
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  float: left;
-  padding: 0px 0px 50px;
-  position: relative;
-  top: 0;
-  background-color: var(--primary-background-color);
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    padding: 0px 0px 50px;
+    position: relative;
+    top: 0;
+    background-color: var(--box-background-color);
+    overflow: hidden;
 }

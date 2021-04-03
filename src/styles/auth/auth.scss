@@ -1,54 +1,55 @@
 header {
-  // border-bottom: 1px solid var(--border-color);
-  background: var(--box-background-color);
-  box-shadow: $boxShadow;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 99999;
-  .site-name {
-    font-size: 30px;
-    color: var(--primary-color);
-    text-align: center;
-    margin: 0;
-  }
-}
-.page-content {
-  margin-top: 55px;
-}
-.auth-content {
-  .auth-side {
-    margin-top: 80px;
+    // border-bottom: 1px solid var(--border-color);
     background: var(--box-background-color);
     box-shadow: $boxShadow;
-    padding: $boxPadding;
-    border-radius: $boxRadius;
-    h4 {
-      font-size: $headingText;
-      // font-weight: 600;
-      color: var(--primary-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    .site-name {
+        font-size: 30px;
+        color: var(--primary-color);
+        text-align: center;
+        margin: 0;
     }
-    h5 {
-      font-size: $paragraphText;
-      font-weight: 500;
-      margin: 10px 0px 24px;
-      color: var(--general-text-color);
-    }
-    .divider {
-      color: var(--general-text-color);
-      margin: 30px;
-      display: flex;
-      align-items: center;
+}
 
-      h5 {
-        opacity: 0.7;
-        margin: 0px 20px;
-      }
-      span {
-        width: 100%;
-        height: 1px;
-        background-color: var(--border-color);
-      }
+.page-content {
+    margin-top: 55px;
+}
+
+.auth-content {
+    .auth-side {
+        margin-top: calc(3rem + 3vh);
+        background: var(--box-background-color);
+        box-shadow: $boxShadow;
+        padding: calc(1rem + 1vh);
+        border-radius: $boxRadius;
+        h4 {
+            font-size: $headingText;
+            // font-weight: 600;
+            color: var(--primary-color);
+        }
+        h5 {
+            font-size: $paragraphText;
+            font-weight: 500;
+            margin: 10px 0px 0px;
+            color: var(--general-text-color);
+        }
+        .divider {
+            color: var(--general-text-color);
+            margin: 30px;
+            display: flex;
+            align-items: center;
+            h5 {
+                opacity: 0.7;
+                margin: 0px 20px;
+            }
+            span {
+                width: 100%;
+                height: 1px;
+                background-color: var(--border-color);
+            }
+        }
     }
-  }
 }

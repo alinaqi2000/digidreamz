@@ -26,7 +26,7 @@ export default function SignUp(props: RouteComponentProps) {
     const submitSignUp = (data: SignUpForm) => {
         fireB.createUser(
             { signIn: false, email: data.email, password: data.password, },
-            { displayName: data.username }
+            { displayName: data.username, email: data.email }
         ).then(console.log)
             .catch((error) => AlertMessage({ type: "msg", title: "Oops...", icon: "error", text: error.message }));
 
@@ -66,6 +66,9 @@ export default function SignUp(props: RouteComponentProps) {
                     </div>
                     <Button onClick={goggleAuth} className="btn-block" variant="outline-primary" type="button">
                         Sign In with Google
+                    </Button>
+                    <Button onClick={() => navigate("/login")} className="btn-block" variant="outline-primary" type="button">
+                        Sign In with Email
                     </Button>
                 </Form>
             </div>

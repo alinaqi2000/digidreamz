@@ -1,0 +1,81 @@
+$cricleOpacity: 0.3;
+$animationScale: 1.03;
+$animationDuration: 4s;
+.circles {
+    span {
+        animation-duration: $animationDuration;
+        animation-iteration-count: infinite;
+        animation-name: bounce;
+        animation-timing-function: ease;
+    }
+    .first {
+        background-color: var(--secondary-color);
+        position: absolute;
+        height: calc(12vh + 12rem);
+        width: calc(12vh + 12rem);
+        opacity: $cricleOpacity;
+        left: calc(-3vh + -3rem);
+        top: calc(20vh + 20rem);
+        border-radius: 50%;
+    }
+    .second {
+        background-color: var(--secondary-color);
+        position: absolute;
+        height: calc(6vh + 6rem);
+        width: calc(6vh + 6rem);
+        opacity: $cricleOpacity;
+        right: calc(2vh + 2rem);
+        top: calc(2vh + 2rem);
+        border-radius: 50%;
+    }
+    .third {
+        background-color: var(--secondary-color);
+        position: absolute;
+        height: calc(2vh + 2rem);
+        width: calc(2vh + 2rem);
+        opacity: $cricleOpacity;
+        right: calc(30vh + 30rem);
+        top: calc(5vh + 5rem);
+        border-radius: 50%;
+    }
+}
+
+
+/* Using SCSS variables to store breakpoints */
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+    .circles {
+        .first {
+            height: calc(7vh + 7rem);
+            width: calc(7vh + 7rem);
+        }
+        .second {
+            height: calc(4vh + 4rem);
+            width: calc(4vh + 4rem);
+        }
+        .third {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+// animation
+@keyframes bounce {
+    0% {
+        transform: scale(1) translateY(0%);
+    }
+    25% {
+        transform: scale($animationScale) translateY(2.5%);
+    }
+    50% {
+        transform: scale(1) translateY(5%);
+    }
+    50% {
+        transform: scale(2 - $animationScale) translateY(2.5%);
+    }
+    100% {
+        transform: scale(1) translateY(0%);
+    }
+}

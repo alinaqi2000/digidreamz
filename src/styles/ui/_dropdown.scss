@@ -1,0 +1,38 @@
+.drop-down-menu {
+    .toggler {
+        background: transparent;
+        color: var(--general-text-color);
+        border: none;
+        &:focus+ul {
+            max-height: 100%;
+        }
+    }
+    ul {
+        list-style: none;
+        max-height: 0%;
+        right: 0;
+        transition: all $buttonTransiotnDuration;
+        color: var(--general-text-color);
+        background: var(--primary-background-color);
+        box-shadow: $boxShadow;
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+        overflow: hidden;
+        position: absolute;
+        width: max-content;
+        li {
+            a {
+                padding: 8px 12px;
+                color: var(--general-text-color);
+                float: left;
+                text-decoration: none;
+                transition: all $buttonTransiotnDuration;
+                width: 100%;
+                &:hover {
+                    background: var(--secondary-color);
+                }
+            }
+        }
+    }
+}

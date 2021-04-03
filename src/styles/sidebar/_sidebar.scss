@@ -1,0 +1,72 @@
+aside {
+    transition: all $sidebarTrasition;
+    width: calc(10rem + 10vw);
+    height: 100vh;
+    position: fixed;
+    background-color: var(--box-background-color);
+    top: calc(3rem + 3vh);
+    padding: $boxPadding;
+    &.left {
+        z-index: 99999;
+        border-right: 1px solid var(--border-color);
+        left: 0;
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .profile {
+                display: flex;
+                align-items: center;
+                .avatar {
+                    height: calc(2rem + 2vh);
+                    width: calc(2rem + 2vh);
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 50%;
+                }
+                h4 {
+                    margin: 0 8px;
+                    font-size: $paragraphText;
+                }
+            }
+            span {
+                color: var(--general-text-color);
+            }
+        }
+    }
+    &.right {
+        border-left: 1px solid var(--border-color);
+        right: 0;
+        z-index: 9999999;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    aside {
+        &.right {
+            top: 0 !important;
+            transform: translateX(100%);
+        }
+        &.right.open {
+            transform: translateX(0%);
+        }
+    }
+    .app-content {
+        margin-right: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    aside {
+        &.left {
+            top: 0 !important;
+            transform: translateX(-100%);
+        }
+        &.left.open {
+            transform: translateX(0%);
+        }
+    }
+    .app-content {
+        margin-left: 0px !important;
+    }
+}

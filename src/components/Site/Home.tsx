@@ -3,12 +3,15 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../store'
 import Default from '../Layouts/Default'
+import Title from '../UI/Title'
+import Feeds from './Feeds/Feeds'
 
 export default function Home(props: RouteComponentProps) {
-    const firebase = useSelector((state: AppState) => state.firebase);
+    const profile: any = useSelector((state: AppState) => state.firebase.profile);
     return (
         <Default>
-            <h4 className="text-center mt-5">Welcome {firebase.auth.displayName || firebase.auth.email} to this website !</h4>
+            <Title title="Home" />
+            <Feeds />
         </Default>
     )
 }

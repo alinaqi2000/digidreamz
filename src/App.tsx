@@ -7,8 +7,9 @@ import { MyAppState } from "./store/reducers/appReducer";
 import { Router } from "@reach/router";
 import SignUp from "./components/Common/SignUp";
 import Preloader from "./components/UI/Preloader";
-import "firebase/auth";
 import Home from "./components/Site/Home";
+import Login from "./components/Common/Login";
+import FirebaseTest from "./components/FirebaseTest";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,10 +18,15 @@ function App() {
     dispatch({ ...new AppActions.SetTheme() });
   }, []);
   return (<div className={state.theme + " App"}>
-    <Preloader display={state.preloader} />
+    <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay left" style={{ display: state.opneLeftSideBar ? "block" : "none" }}></div>
+    <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay right" style={{ display: state.opneRightSideBar ? "block" : "none" }}></div>
+
+    {/* <Preloader display={state.preloader} /> */}
     <Router>
       <Home path="/" />
+      <FirebaseTest path="/test" />
       <SignUp path="/signup" />
+      <Login path="/login" />
     </Router>
   </div>
 

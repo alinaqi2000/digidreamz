@@ -1,17 +1,18 @@
-import { User } from "../../models/User";
 import { updateObject } from "../../shared/utilities";
 import * as AppActions from "../actions/app";
 export interface MyAppState {
     theme: string;
     isSignedIn: boolean;
-    user: User;
     preloader: boolean;
+    opneLeftSideBar: boolean;
+    opneRightSideBar: boolean;
 }
 const initialState: MyAppState = {
     theme: "light",
     isSignedIn: false,
-    user: new User(),
     preloader: true,
+    opneLeftSideBar: false,
+    opneRightSideBar: false
 };
 const setTheme = (state: MyAppState, action: AppActions.SetTheme) => {
     let theme: string | null = localStorage.getItem("THEME_MODE");
@@ -19,16 +20,22 @@ const setTheme = (state: MyAppState, action: AppActions.SetTheme) => {
     localStorage.setItem("THEME_MODE", theme);
     return updateObject(state, { theme });
 };
-const switchTheme = (state: MyAppState, action: AppActions.SwitchTheme) => {
+const switchTheme = (state: MyAppState, action: AppActions.SwitchTheme): MyAppState => {
     let theme: string = state.theme == "light" ? "dark" : "light";
     localStorage.setItem("THEME_MODE", theme);
     return updateObject(state, { theme });
 };
-const togglePreloader = (state: MyAppState, action: AppActions.TogglePreloader) => {
+const togglePreloader = (state: MyAppState, action: AppActions.TogglePreloader): MyAppState => {
     return updateObject(state, { preloader: action.payload });
 };
-const setUser = (state: MyAppState, action: AppActions.SetUser) => {
-    return updateObject(state, { user: action.payload });
+const toggleLeftSidebar = (state: MyAppState, action: AppActions.ToggleLeftSidebar): MyAppState => {
+    return updateObject(state, { opneLeftSideBar: !state.opneLeftSideBar });
+};
+const toggleRightSidebar = (state: MyAppState, action: AppActions.ToggleRightSidebar): MyAppState => {
+    return updateObject(state, { opneRightSideBar: !state.opneRightSideBar });
+};
+const toggleSidebars = (state: MyAppState, action: AppActions.ToggleSidebars): MyAppState => {
+    return updateObject(state, { opneRightSideBar: initialState.opneRightSideBar, opneLeftSideBar: initialState.opneLeftSideBar });
 };
 const reducer = (state = initialState, action: AppActions.AppActions) => {
     switch (action.type) {
@@ -38,8 +45,12 @@ const reducer = (state = initialState, action: AppActions.AppActions) => {
             return switchTheme(state, action);
         case AppActions.TOGGLE_PRELOADER:
             return togglePreloader(state, action);
-        case AppActions.SET_USER:
-            return setUser(state, action);
+        case AppActions.TOGGLE_LEFT_SIDEBAR:
+            return toggleLeftSidebar(state, action);
+        case AppActions.TOGGLE_RIGHT_SIDEBAR:
+            return toggleRightSidebar(state, action);
+        case AppActions.TOGGLE_SIDEBARS:
+            return toggleSidebars(state, action);
         default:
             return state;
     }
