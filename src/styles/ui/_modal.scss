@@ -1,0 +1,65 @@
+.mymodal {
+    z-index: 99999999999;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 100vh;
+    visibility: visible !important;
+    &.hide {
+        visibility: hidden !important;
+    }
+    .overlay {
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .box {
+        width: calc(10rem + 10vw);
+        transform: scale(1);
+        position: fixed;
+        transition: inherit;
+        transition-timing-function: ease-in;
+        transition: $sidebarTrasition;
+        background-color: var(--box-background-color);
+        border-radius: $boxRadius;
+        &.hide {
+            transition: all cubic-bezier(0, 0.1, 1, 1) .1s;
+            transform: scale(0.5) !important;
+        }
+        .header {
+            padding: calc(1rem + 1vh);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            h4 {
+                margin: 0;
+                font-size: $generalText;
+            }
+            span {
+                cursor: pointer;
+                &:hover {
+                    color: var(--primary-color);
+                }
+            }
+        }
+        .content {
+            padding: calc(1rem + 1vh);
+            color: var(--general-text-color);
+            font-size: calc(0.6rem + 0.6vh);
+        }
+        .footer {
+            padding: calc(1rem + 1vh);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            button:not(:last-child) {
+                margin-right: 8px;
+            }
+        }
+    }
+}

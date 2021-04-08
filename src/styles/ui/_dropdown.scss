@@ -1,4 +1,11 @@
 .drop-down-menu {
+    .avatar {
+        height: calc(2rem + 2vh);
+        width: calc(2rem + 2vh);
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+    }
     .toggler {
         background: transparent;
         color: var(--general-text-color);
@@ -34,5 +41,91 @@
                 }
             }
         }
+    }
+}
+
+.profile-dropdown {
+    .avatar {
+        height: calc(1.5rem + 1.5vh);
+        width: calc(1.5rem + 1.5vh);
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+    }
+    .toggler {
+        background: transparent;
+        color: var(--general-text-color);
+        border: none;
+        &:focus+.menu {
+            max-height: 100%;
+        }
+    }
+    .toggler-sm {
+        display: none;
+        background: transparent;
+        color: var(--general-text-color);
+        border: none;
+    }
+    .menu {
+        max-height: 0%;
+        right: 0;
+        transition: all $buttonTransiotnDuration;
+        color: var(--general-text-color);
+        background: var(--primary-background-color);
+        box-shadow: $boxShadow;
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+        overflow: hidden;
+        position: absolute;
+        .menu-header {
+            display: flex;
+            background: var(--primary-tint);
+            width: 100%;
+            align-items: center;
+            padding: $boxPadding;
+            .menu-avatar {
+                height: calc(1.8rem + 1.8vh);
+                width: calc(1.8rem + 1.8vh);
+                background-size: cover;
+                background-position: center;
+                border-radius: 50%;
+            }
+            h4 {
+                margin: 0;
+                margin-left: 10px;
+                font-size: $generalText;
+                color: var(--primary-color);
+            }
+        }
+        ul {
+            list-style: none;
+            color: var(--general-text-color);
+            background: var(--primary-background-color);
+            margin: 0;
+            padding: 0;
+            li {
+                a {
+                    padding: 8px 12px;
+                    color: var(--general-text-color);
+                    float: left;
+                    text-decoration: none;
+                    transition: all $buttonTransiotnDuration;
+                    width: 100%;
+                    &:hover {
+                        background: var(--secondary-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .toggler-sm {
+        display: block !important;
+    }
+    .toggler {
+        display: none !important;
     }
 }

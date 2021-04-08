@@ -1,0 +1,36 @@
+.app-content {
+    top: 0;
+    position: relative;
+    width: auto;
+    margin-left: calc(10rem + 10vw);
+    margin-right: calc(10rem + 10vw);
+    .content-header {
+        padding: $boxPadding;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+            display: flex;
+            align-items: center;
+            .bars {
+                display: none;
+                color: var(--general-text-color);
+                font-size: $titleText;
+                margin-right: 10px;
+                position: relative;
+                bottom: 2px;
+            }
+            h3 {
+                margin: 0;
+                font-size: $titleText;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bars {
+        display: block !important;
+    }
+}

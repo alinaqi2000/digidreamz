@@ -9,9 +9,9 @@ interface Props {
 export default function Default(props: Props) {
     return (
         <AuthRoute>
-            <Header />
             <SidebarLeft />
             <div className="app-content">
+                <Header />
                 {props.children}
             </div>
             <SidebarRight />

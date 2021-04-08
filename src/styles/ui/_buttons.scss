@@ -1,11 +1,11 @@
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    transition: all $buttonTransiotnDuration;
     border-radius: $boxRadius;
     &:hover,
     &:focus,
     &:active {
+        transition: all $buttonTransiotnDuration;
         border-color: var(--secondary-color) !important;
         background-color: var(--secondary-color) !important;
         box-shadow: $boxShadow !important;
@@ -16,11 +16,11 @@
     background-color: transparent;
     color: var(--primary-color);
     border-color: var(--primary-color);
-    transition: all $buttonTransiotnDuration;
     border-radius: $boxRadius;
     &:hover,
     &:focus,
     &:active {
+        transition: all $buttonTransiotnDuration;
         border-color: var(--secondary-color) !important;
         background-color: var(--secondary-color) !important;
         box-shadow: $boxShadow !important;

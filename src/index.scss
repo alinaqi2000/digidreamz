@@ -52,14 +52,6 @@ header {
     }
 }
 
-.app-content {
-    top: calc(3rem + 3vh);
-    position: relative;
-    width: auto;
-    margin-left: calc(10rem + 10vw);
-    margin-right: calc(10rem + 10vw);
-}
-
 .todos {
     list-style: decimal;
     color: var(--general-text-color);

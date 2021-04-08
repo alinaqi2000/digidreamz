@@ -1,15 +1,12 @@
 import React from 'react'
-import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../../store';
 import { MyAppState } from '../../../store/reducers/appReducer';
-import { SwitchTheme, ToggleLeftSidebar, ToggleRightSidebar } from '../../../store/actions/app';
-import firebase from 'firebase';
-import { Link, LinkProps } from '@reach/router';
-import { LogOut, Menu } from 'react-feather';
-import Avatar from '../../UI/Avatar';
-import { getProfile } from '../../../shared/state';
+import { Link } from '@reach/router';
 import { FirebaseReducer } from 'react-redux-firebase';
+import ProfileDropDown from '../../UI/ProfileDropDown';
+import { AlignJustify } from 'react-feather';
+import { ToggleLeftSidebar } from '../../../store/actions/app';
 const NavLink = (props: any) => (
     <Link
         {...props}
@@ -25,8 +22,24 @@ export default function Header() {
     const fb: FirebaseReducer.Reducer = useSelector((state: AppState) => state.firebase);
     const dispatch = useDispatch();
     return (
-        <header>
-            <div className="brand">
+        <React.Fragment>
+            <div className="content-header">
+                <div className="title">
+                    {/* <div className="bars" onClick={() => dispatch({ ...new ToggleLeftSidebar() })}>
+                        <AlignJustify />
+                    </div> */}
+                    <h3>
+                        {app.cPage.name}
+                    </h3>
+                </div>
+                {/* <div className="profile">
+                  
+                    <h4>{getProfile(fb).displayName}</h4>
+                </div> */}
+                <ProfileDropDown />
+
+            </div>
+            {/* <div className="brand">
                 <div onClick={() => dispatch({ ...new ToggleLeftSidebar() })} className="profile small">
                     <Avatar url={getProfile(fb).photoURL} />
                 </div>
@@ -52,9 +65,9 @@ export default function Header() {
                 <button onClick={() => dispatch({ ...new ToggleRightSidebar() })} className="responsive-bars right">
                     <Menu />
                 </button>
-            </div>
+            </div> */}
 
 
-        </header>
+        </React.Fragment>
     )
 }

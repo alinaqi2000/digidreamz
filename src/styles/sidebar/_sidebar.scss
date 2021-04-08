@@ -4,12 +4,50 @@ aside {
     height: 100vh;
     position: fixed;
     background-color: var(--box-background-color);
-    top: calc(3rem + 3vh);
+    top: 0;
     padding: $boxPadding;
     &.left {
         z-index: 99999;
         border-right: 1px solid var(--border-color);
         left: 0;
+        .brand {
+            height: 45px;
+            align-items: center;
+            display: flex;
+            .site-name {
+                font-size: $headingText;
+                color: var(--primary-color);
+                margin: 0;
+            }
+        }
+        .sidebar-content {
+            ul {
+                &.tabs {
+                    margin: 0;
+                    margin-top: 50px;
+                    padding: 0;
+                    li {
+                        padding: 5px 0px 5px;
+                        list-style: none;
+                        width: 100%;
+                        float: left;
+                        a {
+                            color: var(--general-text-color);
+                            text-decoration: none;
+                            font-size: $generalText;
+                            &.active {
+                                color: var(--primary-color);
+                            }
+                            svg {
+                                height: $generalText;
+                                position: relative;
+                                bottom: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .sidebar-header {
             display: flex;
             justify-content: space-between;
@@ -41,6 +79,47 @@ aside {
     }
 }
 
+.tabs-menu {
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    border-top: 1px solid var(--border-color);
+    li {
+        list-style: none;
+        width: 100%;
+        float: left;
+        text-align: center;
+        padding: 12px;
+        font-size: calc(1rem + 1vh);
+        a {
+            color: var(--general-text-color);
+            text-decoration: none;
+            font-size: $generalText;
+            &.active {
+                color: var(--primary-color);
+            }
+            svg {
+                height: $generalText;
+                position: relative;
+                bottom: 2px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    aside {
+        &.left {
+            padding-left: calc(2rem + 2vw);
+        }
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     aside {
         &.right {
@@ -58,6 +137,14 @@ aside {
 
 @media only screen and (max-width: 768px) {
     aside {
+        width: calc(15rem + 15vw);
+        .sidebar-content {
+            ul {
+                &.tabs {
+                    display: none !important;
+                }
+            }
+        }
         &.left {
             top: 0 !important;
             transform: translateX(-100%);
@@ -68,5 +155,8 @@ aside {
     }
     .app-content {
         margin-left: 0px !important;
+    }
+    .tabs-menu {
+        display: flex !important;
     }
 }

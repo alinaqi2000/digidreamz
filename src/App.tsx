@@ -8,25 +8,38 @@ import { Router } from "@reach/router";
 import SignUp from "./components/Common/SignUp";
 import Preloader from "./components/UI/Preloader";
 import Home from "./components/Site/Home";
+import Explore from "./components/Site/Explore";
 import Login from "./components/Common/Login";
 import FirebaseTest from "./components/FirebaseTest";
+import { CPage } from "./models/UI/CPage";
+import Title from "./components/UI/Title";
+import Notifications from "./components/Site/Notifications";
+import ShowModal from "./components/UI/ShowModal";
 
 function App() {
   const dispatch = useDispatch();
-  const state: MyAppState = useSelector((state: AppState) => state.app);
+  const app: MyAppState = useSelector((state: AppState) => state.app);
   useEffect(() => {
     dispatch({ ...new AppActions.SetTheme() });
-  }, []);
-  return (<div className={state.theme + " App"}>
-    <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay left" style={{ display: state.opneLeftSideBar ? "block" : "none" }}></div>
-    <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay right" style={{ display: state.opneRightSideBar ? "block" : "none" }}></div>
+    dispatch({ ...new AppActions.SetCurrrentPage(window.location.pathname) });
+  }, [dispatch]);
+  return (<div className={app.theme + " App"}>
+    <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay left" style={{ display: (app.opneLeftSideBar || app.opneRightSideBar) ? "block" : "none" }}></div>
+    <ShowModal {...app.showModal} />
+    {/* <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay right" style={{ display: state.opneRightSideBar ? "block" : "none" }}></div> */}
 
     {/* <Preloader display={state.preloader} /> */}
+    <Title title={app.cPage.seo_title} />
     <Router>
+      {/* Protected */}
       <Home path="/" />
-      <FirebaseTest path="/test" />
+      <Notifications path="/notifications" />
+      <Explore path="/explore" />
+      {/* Authentication */}
       <SignUp path="/signup" />
       <Login path="/login" />
+      {/* Testing */}
+      <FirebaseTest path="/test" />
     </Router>
   </div>
 
