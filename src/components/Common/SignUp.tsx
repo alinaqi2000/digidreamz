@@ -6,7 +6,10 @@ import firebase from 'firebase';
 import Title from '../UI/Title';
 import { useForm } from "react-hook-form";
 import { useFirebase } from 'react-redux-firebase';
-import { AlertMessage } from '../UI/AlertMessage';
+
+import { ModalAction, ShowModal } from '../../models/UI/ShowModal'
+import { SetShowModal } from '../../store/actions/app'
+import { useDispatch } from 'react-redux';
 interface SignUpForm {
     username: string;
     email: string;
@@ -23,13 +26,19 @@ export default function SignUp(props: RouteComponentProps) {
         }).catch(error => {
         });
     }
+    const dispatch = useDispatch();
     const submitSignUp = (data: SignUpForm) => {
         fireB.createUser(
             { signIn: false, email: data.email, password: data.password, },
             { displayName: data.username, email: data.email }
         ).then(console.log)
-            .catch((error) => AlertMessage({ type: "msg", title: "Oops...", icon: "error", text: error.message }));
-
+            .catch((error) => dispatch(
+                    {
+                        ...new SetShowModal(new ShowModal(true, "alert", "Oops...", error.message
+                            , [new ModalAction("cancel", "Ok")
+                            ]))
+                    }
+                ));
     }
     return (
         <Auth>

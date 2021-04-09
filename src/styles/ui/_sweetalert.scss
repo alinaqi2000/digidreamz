@@ -1,21 +1,44 @@
 .swal2-popup {
   background-color: var(--primary-background-color) !important;
-  .swal2-title,
-  .swal2-content {
-    color: var(--general-text-color) !important;
+  .swal2-title {
+    color: black;
   }
-  $primaryCol: var(--primary-color);
+  .swal2-content {
+    color: red;
+  }
   .swal2-confirm {
-    background-color: $primaryCol !important;
-    border-color: var(--primary-color) !important;
-    transition: all $buttonTransiotnDuration !important;
-    border-radius: $boxRadius !important;
-    &:hover,
-    &:focus,
-    &:active {
-      border-color: var(--secondary-color) !important;
-      background-color: var(--secondary-color) !important;
-      box-shadow: $boxShadow !important;
-    }
+    background-color:red !important;
+    color: black !important;
+  
+    // border-radius: 15px;
+    // box-shadow: 0px 0px 26px rgb(0 0 0 / 10%);
   }
 }
+
+// .swal2-popup .swal2-icon::after{
+//   content: "";
+//   display: block;
+//   clear: both;
+// }
+
+// .swal2-popup {
+//   background-color: var(--primary-background-color) !important;
+//   .swal2-title,
+//   .swal2-content {
+//     color: var(--general-text-color) !important;
+//   }
+//   $primaryCol: var(--primary-color);
+//   .swal2-confirm {
+//     background-color: $primaryCol !important;
+//     border-color: var(--primary-color) !important;
+//     transition: all $buttonTransiotnDuration !important;
+//     border-radius: $boxRadius !important;
+//     &:hover,
+//     &:focus,
+//     &:active {
+//       border-color: var(--secondary-color) !important;
+//       background-color: var(--secondary-color) !important;
+//       box-shadow: $boxShadow !important;
+//     }
+//   }
+// }

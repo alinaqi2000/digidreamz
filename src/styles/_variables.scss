@@ -1,6 +1,5 @@
 // Font Family
-$fontFamily: "Balsamiq Sans",
-cursive;
+$fontFamily: "Balsamiq Sans", cursive;
 // Font Sizes
 $generalText: calc(0.8em + 0.8vh);
 $titleText: calc(0.9em + 0.9vh);
@@ -12,28 +11,55 @@ $themeTrasition: 0.75s;
 $sidebarTrasition: 0.25s;
 $buttonTransiotnDuration: 0.4s;
 // Colors
+.sienna {
+  --primary-color: #e76f51;
+  --primary-tint: #f9edea;
+  --secondary-color: #dea47e;
+}
+
+.blue {
+  --primary-color: #219ebc;
+  --primary-tint: #cfecfa;
+  --secondary-color: #8ecae6;
+}
+
+.green {
+  --primary-color: #02c39a;
+  --primary-tint: #283d3b;
+  --secondary-color: #b7e4c7;
+}
+
+.red {
+  --primary-color: #e5383b;
+  --primary-tint: #780000;
+  --secondary-color: #b1a7a6;
+}
+
 .light {
-    --primary-color: #e76f51;
-    --primary-tint: #f9edea;
-    --primary-background-color: #f9edea;
-    --secondary-color: #dea47e;
-    --border-color: #dddddd;
-    --danger-color: #e82d2d;
-    --box-background-color: #fbfafa;
-    --navbar-background-color: #fffcfc;
-    --general-text-color: #000000;
+  --primary-background-color: #f9edea;
+  --border-color: #dddddd;
+  --danger-color: #e82d2d;
+  --box-background-color: #fbfafa;
+  --navbar-background-color: #fffcfc;
+  --general-text-color: #000000;
+}
+
+.dim {
+  --primary-background-color: #35231f;
+  --border-color: #242424;
+  --danger-color: #e82d2d;
+  --navbar-background-color: #211b1a;
+  --box-background-color: #211b1a;
+  --general-text-color: #ffffff;
 }
 
 .dark {
-    --primary-color: #e76f51;
-    --primary-tint: #f9edea;
-    --primary-background-color: #35231f;
-    --secondary-color: #dea47e;
-    --border-color: #242424;
-    --danger-color: #e82d2d;
-    --navbar-background-color: #211b1a;
-    --box-background-color: #211b1a;
-    --general-text-color: #ffffff;
+  --primary-background-color: #181818;
+  --border-color: #242424;
+  --danger-color: #e82d2d;
+  --navbar-background-color: #211b1a;
+  --box-background-color: #181818;
+  --general-text-color: #ffffff;
 }
 
 // Paddings

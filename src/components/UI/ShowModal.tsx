@@ -1,28 +1,55 @@
 import React from 'react'
-import { X } from 'react-feather'
+import { X, AlertCircle } from 'react-feather'
 import { useDispatch } from 'react-redux'
 import { ModalAction, ShowModal as Modal } from '../../models/UI/ShowModal'
 import { SetShowModal } from '../../store/actions/app'
 
 export default function ShowModal(modal: Modal) {
     const dispatch = useDispatch();
-    return (
-        <div className={`mymodal ${modal.visible ? "show" : "hide"}`}>
-            <div className="overlay" style={{ display: modal.visible ? "block" : "none" }}></div>
-            <div className={`box ${modal.visible ? "" : "hide"}`}>
-                <div className="header">
-                    <h4>{modal.title}</h4>
-                    <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>
-                </div>
-                <div className="content">
-                    {modal.content}
-                </div>
-                <div className="footer">
-                    {modal.actions.length && modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
-                </div>
-            </div>
-        </div >
-    )
+    switch (modal.type) {
+        case "action":
+            return (
+                <div className={`mymodal ${modal.visible ? "show" : "hide"}`}>
+                    <div className="overlay" style={{ display: modal.visible ? "block" : "none" }}></div>
+                    <div className={`box ${modal.visible ? "" : "hide"}`}>
+                        <div className="header">
+                            <h4>{modal.title}</h4>
+                            <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>
+                        </div>
+                        <div className="content">
+                            {modal.content}
+                        </div>
+                        <div className="footer">
+                            {modal.actions.length && modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
+                        </div>
+                    </div>
+                </div >
+            )
+            break;
+    
+        default:
+            return (
+                <div className={`mymodal ${modal.visible ? "show" : "hide"}`}>
+                    <div className="overlay" style={{ display: modal.visible ? "block" : "none" }}></div>
+                    <div className={`box ${modal.visible ? "" : "hide"}`}>
+                        <div className="header">
+                            <div className="d-flex align-items-center justify-content-start">
+                            <span><AlertCircle /></span>
+                            <h4 className="ml-1">{modal.title}</h4>
+                            </div>
+                            <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>
+                        </div>
+                        <div className="content">
+                            {modal.content}
+                        </div>
+                        <div className="footer">
+                            {modal.actions.length && modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
+                        </div>
+                    </div>
+                </div >
+            )
+            break;
+    }
 }
 const ActionButton = (props: { action: ModalAction, modal: Modal }) => {
     const dispatch = useDispatch();

@@ -23,7 +23,7 @@ function App() {
     dispatch({ ...new AppActions.SetTheme() });
     dispatch({ ...new AppActions.SetCurrrentPage(window.location.pathname) });
   }, [dispatch]);
-  return (<div className={app.theme + " App"}>
+  return (<div className={app.theme + " App red"}>
     <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay left" style={{ display: (app.opneLeftSideBar || app.opneRightSideBar) ? "block" : "none" }}></div>
     <ShowModal {...app.showModal} />
     {/* <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay right" style={{ display: state.opneRightSideBar ? "block" : "none" }}></div> */}
