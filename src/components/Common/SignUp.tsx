@@ -6,10 +6,11 @@ import firebase from 'firebase';
 import Title from '../UI/Title';
 import { useForm } from "react-hook-form";
 import { useFirebase } from 'react-redux-firebase';
-
-import { ModalAction, ShowModal } from '../../models/UI/ShowModal'
-import { SetShowModal } from '../../store/actions/app'
+import { SetAlertMessage, SetShowModal } from '../../store/actions/app'
 import { useDispatch } from 'react-redux';
+import { AlertMessage } from '../../models/UI/AlertMessage';
+import { ModalAction, ShowModal } from "../../models/UI/ShowModal";
+
 interface SignUpForm {
     username: string;
     email: string;
@@ -23,8 +24,13 @@ export default function SignUp(props: RouteComponentProps) {
         const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(googleAuthProvider).then((resp) => {
             navigate("/");
-        }).catch(error => {
-        });
+        }).catch((error) => error.code !== 'auth/popup-closed-by-user' && dispatch(
+            {
+                ...new SetShowModal(new ShowModal(true, "alert", "Oops...", error.message
+                    , [new ModalAction("cancel", "Ok")
+                    ]))
+            }
+        ));
     }
     const dispatch = useDispatch();
     const submitSignUp = (data: SignUpForm) => {
@@ -33,12 +39,10 @@ export default function SignUp(props: RouteComponentProps) {
             { displayName: data.username, email: data.email }
         ).then(console.log)
             .catch((error) => dispatch(
-                    {
-                        ...new SetShowModal(new ShowModal(true, "alert", "Oops...", error.message
-                            , [new ModalAction("cancel", "Ok")
-                            ]))
-                    }
-                ));
+                {
+                    ...new SetAlertMessage(new AlertMessage("danger", error.message))
+                }
+            ));
     }
     return (
         <Auth>

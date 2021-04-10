@@ -6,7 +6,12 @@ import firebase from "firebase";
 import Title from "../UI/Title";
 import { useForm } from "react-hook-form";
 import { useFirebase } from "react-redux-firebase";
-import { AlertMessage } from "../UI/AlertMessage";
+import { SetAlertMessage, SetShowModal } from '../../store/actions/app'
+import { AlertMessage } from '../../models/UI/AlertMessage';
+
+import { useDispatch } from "react-redux";
+import { ModalAction, ShowModal } from "../../models/UI/ShowModal";
+
 interface LoginForm {
     email: string;
     password: string;
@@ -15,6 +20,7 @@ interface LoginForm {
 export default function Login(props: RouteComponentProps) {
     const { register, errors, handleSubmit } = useForm<LoginForm>();
     const fireB = useFirebase();
+    const dispatch = useDispatch();
     const goggleAuth = () => {
         const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
         firebase
@@ -23,20 +29,23 @@ export default function Login(props: RouteComponentProps) {
             .then((resp) => {
                 navigate("/");
             })
-            .catch((error) => { });
+            .catch((error) => error.code !== 'auth/popup-closed-by-user' && dispatch(
+                {
+                    ...new SetShowModal(new ShowModal(true, "alert", "Oops...", error.message
+                        , [new ModalAction("cancel", "Ok")
+                        ]))
+                }
+            ));
     };
     const submitLogin = (data: LoginForm) => {
         fireB
             .login({ email: data.email, password: data.password })
             .then(console.log)
-            .catch((error) =>
-                AlertMessage({
-                    type: "msg",
-                    title: "Oops...",
-                    icon: "error",
-                    text: error.message,
-                })
-            );
+            .catch((error) => dispatch(
+                {
+                    ...new SetAlertMessage(new AlertMessage("danger", error.message))
+                }
+            ));
     };
     return (
         <Auth>

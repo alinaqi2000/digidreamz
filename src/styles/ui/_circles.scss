@@ -3,12 +3,12 @@ $animationScale: 1.03;
 $animationDuration: 4s;
 .circles {
     span {
-        animation-duration: $animationDuration;
         animation-iteration-count: infinite;
         animation-name: bounce;
         animation-timing-function: ease;
     }
     .first {
+        animation-duration: random(8) * $animationDuration;
         background-color: var(--secondary-color);
         position: absolute;
         height: calc(12vh + 12rem);
@@ -19,6 +19,7 @@ $animationDuration: 4s;
         border-radius: 50%;
     }
     .second {
+        animation-duration: random(8) * $animationDuration;
         background-color: var(--secondary-color);
         position: absolute;
         height: calc(6vh + 6rem);
@@ -29,6 +30,7 @@ $animationDuration: 4s;
         border-radius: 50%;
     }
     .third {
+        animation-duration: random(8) * $animationDuration;
         background-color: var(--secondary-color);
         position: absolute;
         height: calc(2vh + 2rem);

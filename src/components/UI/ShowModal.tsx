@@ -19,14 +19,17 @@ export default function ShowModal(modal: Modal) {
                         <div className="content">
                             {modal.content}
                         </div>
-                        <div className="footer">
-                            {modal.actions.length && modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
-                        </div>
+                        {
+                            modal.actions.length && (
+                                <div className="footer">
+                                    {modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
+                                </div>
+                            )
+                        }
+
                     </div>
                 </div >
             )
-            break;
-    
         default:
             return (
                 <div className={`mymodal ${modal.visible ? "show" : "hide"}`}>
@@ -34,21 +37,24 @@ export default function ShowModal(modal: Modal) {
                     <div className={`box ${modal.visible ? "" : "hide"}`}>
                         <div className="header">
                             <div className="d-flex align-items-center justify-content-start">
-                            <span><AlertCircle /></span>
-                            <h4 className="ml-1">{modal.title}</h4>
+                                <span><AlertCircle /></span>
+                                <h4 className="ml-1">{modal.title}</h4>
                             </div>
                             <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>
                         </div>
                         <div className="content">
                             {modal.content}
                         </div>
-                        <div className="footer">
-                            {modal.actions.length && modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
-                        </div>
+                        {
+                            modal.actions.length && (
+                                <div className="footer">
+                                    {modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
+                                </div>
+                            )
+                        }
                     </div>
                 </div >
             )
-            break;
     }
 }
 const ActionButton = (props: { action: ModalAction, modal: Modal }) => {

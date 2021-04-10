@@ -1,0 +1,55 @@
+.alert-messages {
+    position: fixed;
+    top: 10px;
+    z-index: 999999999;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    right: calc(1rem + 1vh);
+    .msg {
+        padding: $boxPadding;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        border-radius: 5px;
+        margin: 5px 0px;
+        width: calc(15rem + 15vh) !important;
+        &.info {
+            background-color: var(--info-color);
+            color: #000;
+        }
+        &.danger {
+            background-color: var(--danger-color);
+            color: #fff;
+        }
+        &.success {
+            background-color: var(--success-color);
+            color: #fff;
+        }
+        &.warning {
+            background-color: var(--warning-color);
+            color: #fff;
+        }
+        .logo {
+            margin-right: 6px;
+            svg {
+                width: calc(0.8rem + 0.8vh);
+                height: calc(0.8rem + 0.8vh);
+            }
+        }
+        .body {
+            font-size: $paragraphText;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .alert-messages {
+        width: 100%;
+        right: 0 !important;
+        .msg {
+            width: 90vw !important;
+        }
+    }
+}

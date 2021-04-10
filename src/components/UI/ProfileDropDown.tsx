@@ -7,7 +7,8 @@ import { getProfile } from '../../shared/state';
 import Avatar from './Avatar';
 import { Link } from '@reach/router';
 import { ToggleLeftSidebar } from '../../store/actions/app';
-
+import { LogOut } from 'react-feather';
+import firebase from 'firebase';
 export default function ProfileDropDown() {
     const fb: FirebaseReducer.Reducer = useSelector((state: AppState) => state.firebase);
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export default function ProfileDropDown() {
                 <ul>
                     <li><Link to="/manage-profile">Manage Profile</Link></li>
                     <li><Link to="/manage-profile">Change Password</Link></li>
+                    <li><a onClick={() => firebase.auth().signOut()}><LogOut /></a></li>
                 </ul>
             </div>
         </div>

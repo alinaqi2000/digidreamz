@@ -5,7 +5,6 @@
     &:hover,
     &:focus,
     &:active {
-        transition: all $buttonTransiotnDuration;
         border-color: var(--secondary-color) !important;
         background-color: var(--secondary-color) !important;
         box-shadow: $boxShadow !important;
@@ -20,7 +19,6 @@
     &:hover,
     &:focus,
     &:active {
-        transition: all $buttonTransiotnDuration;
         border-color: var(--secondary-color) !important;
         background-color: var(--secondary-color) !important;
         box-shadow: $boxShadow !important;
