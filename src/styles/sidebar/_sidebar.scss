@@ -46,6 +46,23 @@ aside {
                         }
                     }
                 }
+                &.theme {
+                    position: absolute;
+                    bottom: 0;
+                    display: flex;
+                    margin: 0;
+                    padding: 15px;
+                    justify-content: space-between;
+                    color: var(--general-text-color);
+                    list-style: none;
+                    width: 100%;
+                    cursor: pointer;
+                    li {
+                        &:hover {
+                            color: var(--primary-color);
+                        }
+                    }
+                }
             }
         }
         .sidebar-header {
@@ -116,6 +133,13 @@ aside {
     aside {
         &.left {
             padding-left: calc(2rem + 2vw);
+            .sidebar-content {
+                ul {
+                    &.theme {
+                        left: 0;
+                    }
+                }
+            }
         }
     }
 }

@@ -18,7 +18,8 @@ export interface MyAppState {
     opneRightSideBar: boolean;
     cPage: CPage;
     showModal: ShowModal
-    alertMessages: AlertMessage[]
+    alertMessages: AlertMessage[],
+    setupModal: string
 }
 const initialState: MyAppState = {
     theme: "light",
@@ -28,7 +29,8 @@ const initialState: MyAppState = {
     opneRightSideBar: false,
     cPage: pages[0],
     showModal: new ShowModal(),
-    alertMessages: []
+    alertMessages: [],
+    setupModal: ""
 };
 const setTheme = (state: MyAppState, action: AppActions.SetTheme) => {
     let theme: string | null = localStorage.getItem("THEME_MODE");
@@ -59,6 +61,9 @@ const setCurrentPage = (state: MyAppState, action: AppActions.SetCurrrentPage): 
 const setShowModal = (state: MyAppState, action: AppActions.SetShowModal): MyAppState => {
     return updateObject(state, { showModal: action.payload });
 };
+const setShowModalActions = (state: MyAppState, action: AppActions.SetShowModalActions): MyAppState => {
+    return updateObject(state, { showModal: { ...state.showModal, actions: action.payload } });
+};
 const setAlertMessage = (state: MyAppState, action: AppActions.SetAlertMessage): MyAppState => {
     if (state.alertMessages && state.alertMessages.length > 4) {
         state.alertMessages.splice(0, 1);
@@ -69,6 +74,9 @@ const reduceAlertMessage = (state: MyAppState, action: AppActions.ReduceAlertMes
     var index = state.alertMessages.findIndex(msg => msg.key === action.payload);
     state.alertMessages.splice(index, 1);
     return updateObject(state, { alertMessages: state.alertMessages });
+};
+const setSetupModal = (state: MyAppState, action: AppActions.SetSetupModal): MyAppState => {
+    return updateObject(state, { setupModal: action.payload });
 };
 const reducer = (state = initialState, action: AppActions.AppActions) => {
     switch (action.type) {
@@ -88,10 +96,14 @@ const reducer = (state = initialState, action: AppActions.AppActions) => {
             return setCurrentPage(state, action);
         case AppActions.SET_SHOW_MODAL:
             return setShowModal(state, action);
+        case AppActions.SET_SHOW_MODAL_ACTIONS:
+            return setShowModalActions(state, action);
         case AppActions.SET_ALERT_MESSAGE:
             return setAlertMessage(state, action);
         case AppActions.REDUCE_ALERT_MESSAGE:
             return reduceAlertMessage(state, action);
+        case AppActions.SET_SETUP_MODAL:
+            return setSetupModal(state, action);
         default:
             return state;
     }

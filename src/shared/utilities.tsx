@@ -12,3 +12,11 @@ export const getPage = (link: string, pages: CPage[]): CPage => {
     page.previous = window.location.pathname;
     return page;
 }
+export const toTitleCase = (str: string) => {
+    return str.replace(
+        /\w\S*/g,
+        (txt) => {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}

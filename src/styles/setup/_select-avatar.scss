@@ -1,0 +1,67 @@
+.select-avatars {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: inherit;
+    padding: 0;
+    li {
+        padding: calc(0.5rem + 0.5vh) calc(0.3rem + 0.3vh);
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        cursor: pointer;
+        &:hover {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+        &.active {
+            color: #fff;
+            background: var(--primary-color);
+            &::after {
+                content: "\2713";
+                font-size: 18px;
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+.avatars {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(0.8rem + 0.8vh) calc(0.5rem + 0.5vh);
+    max-height: 50vh;
+    overflow-y: scroll;
+    .ava {
+        padding: 5px;
+        .av {
+            height: calc(3rem + 3vh);
+            width: calc(3rem + 3vh);
+            background-size: contain;
+            background-position: center;
+            border-radius: 50%;
+            cursor: pointer;
+            &.active {
+                .layer {
+                    background-color: rgba(0, 0, 0, 0.6);
+                    position: relative;
+                    border-radius: 50%;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &::after {
+                        content: "\2713";
+                        color: var(--primary-color);
+                        font-size: 30px;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+}

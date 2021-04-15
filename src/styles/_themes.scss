@@ -1,0 +1,124 @@
+// Colors
+.sienna {
+    --primary-color: #e76f51;
+    --primary-tint: #f9edea;
+    --secondary-color: #dea47e;
+}
+
+.blue {
+    --primary-color: #219ebc;
+    --primary-tint: #cfecfa;
+    --secondary-color: #8ecae6;
+}
+
+.green {
+    --primary-color: #02c39a;
+    --primary-tint: #b7e4c7;
+    --secondary-color: #283d3b;
+}
+
+.red {
+    --primary-color: #e5383b;
+    --primary-tint: #ff8888;
+    --secondary-color: #b1a7a6;
+}
+
+.brown {
+    --primary-color: #563d39;
+    --primary-tint: #bdb19a;
+    --secondary-color: #bdb19a;
+}
+
+.plum {
+    --primary-color: #9f4375;
+    --primary-tint: #c58eac;
+    --secondary-color: #4f213a;
+}
+
+.pink {
+    --primary-color: #cc99a2;
+    --primary-tint: #ffd0d6;
+    --secondary-color: #4c3c3f;
+}
+
+.sky-blue {
+    --primary-color: #74b2a9;
+    --primary-tint: #cafff7;
+    --secondary-color: #426660;
+}
+
+.violet-orchid {
+    --primary-color: #747db2;
+    --primary-tint: #d3d9ff;
+    --secondary-color: #32364c;
+}
+
+.maroon {
+    --primary-color: #8f3c3f;
+    --primary-tint: #c58e90;
+    --secondary-color: #2f1415;
+}
+
+.sea-green {
+    --primary-color: #50726c;
+    --primary-tint: #e0e8e7;
+    --secondary-color: #283936;
+}
+
+.candy-pink {
+    --primary-color: #cf0029;
+    --primary-tint: #f0b2be;
+    --secondary-color: #7c0018;
+}
+
+.yellow {
+    --primary-color: #ffdb19;
+    --primary-tint: #ffef99;
+    --secondary-color: #4c4000;
+}
+
+.orange {
+    --primary-color: #e58400;
+    --primary-tint: #fff4e5;
+    --secondary-color: #7f4900;
+}
+
+.mud {
+    --primary-color: #4c4832;
+    --primary-tint: #fffbe4;
+    --secondary-color: #b2a974;
+}
+
+// Themes
+.light {
+    --primary-background-color: #f9edea;
+    --border-color: #dddddd;
+    --danger-color: #e82d2d;
+    --box-background-color: #fbfafa;
+    --navbar-background-color: #fffcfc;
+    --general-text-color: #000000;
+}
+
+.dim {
+    --primary-background-color: #35231f;
+    --border-color: #242424;
+    --danger-color: #e82d2d;
+    --info-color: #48cae4;
+    --success-color: #7ae582;
+    --warning-color: #e55b13;
+    --navbar-background-color: #211b1a;
+    --box-background-color: #211b1a;
+    --general-text-color: #ffffff;
+}
+
+.dark {
+    --primary-background-color: #181818;
+    --border-color: #242424;
+    --danger-color: #e82d2d;
+    --info-color: #48cae4;
+    --success-color: #7ae582;
+    --warning-color: #e55b13;
+    --navbar-background-color: #211b1a;
+    --box-background-color: #181818;
+    --general-text-color: #ffffff;
+}

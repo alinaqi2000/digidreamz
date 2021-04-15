@@ -2,7 +2,7 @@ import React from 'react'
 import { X, AlertCircle } from 'react-feather'
 import { useDispatch } from 'react-redux'
 import { ModalAction, ShowModal as Modal } from '../../models/UI/ShowModal'
-import { SetShowModal } from '../../store/actions/app'
+import { SetShowModal, SetShowModalActions } from '../../store/actions/app'
 
 export default function ShowModal(modal: Modal) {
     const dispatch = useDispatch();
@@ -14,7 +14,11 @@ export default function ShowModal(modal: Modal) {
                     <div className={`box ${modal.visible ? "" : "hide"}`}>
                         <div className="header">
                             <h4>{modal.title}</h4>
-                            <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>
+                            {modal.hasCancel && <span onClick={() => {
+                                dispatch({ ...new SetShowModal(new Modal()) })
+                                dispatch({ ...new SetShowModalActions([]) })
+                            }}><X /></span>}
+
                         </div>
                         <div className="content">
                             {modal.content}
@@ -22,7 +26,7 @@ export default function ShowModal(modal: Modal) {
                         {
                             modal.actions.length && (
                                 <div className="footer">
-                                    {modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
+                                    {modal.actions.map((action: ModalAction) => <ActionButton key={action.name} {...{ action, modal }} />)}
                                 </div>
                             )
                         }
@@ -40,7 +44,7 @@ export default function ShowModal(modal: Modal) {
                                 <span><AlertCircle /></span>
                                 <h4 className="ml-1">{modal.title}</h4>
                             </div>
-                            <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>
+                            {modal.hasCancel && <span onClick={() => dispatch({ ...new SetShowModal({ ...modal, visible: false }) })}><X /></span>}
                         </div>
                         <div className="content">
                             {modal.content}
@@ -48,7 +52,7 @@ export default function ShowModal(modal: Modal) {
                         {
                             modal.actions.length && (
                                 <div className="footer">
-                                    {modal.actions.map((action: ModalAction) => <ActionButton {...{ action, modal }} />)}
+                                    {modal.actions.map((action: ModalAction) => <ActionButton key={action.name} {...{ action, modal }} />)}
                                 </div>
                             )
                         }

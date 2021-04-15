@@ -8,6 +8,11 @@ import { connect } from 'react-redux';
 import { MyAppState } from '../../../store/reducers/appReducer';
 import * as AppActions from "../../../store/actions/app";
 import { Bell, Hash, Home } from 'react-feather';
+import { ShowModal } from '../../../models/UI/ShowModal';
+import SelectColorScheme from '../../Site/Setup/SelectColorScheme';
+import SelectAvatar from '../../Site/Setup/SelectAvatar';
+import SelectThemeMode from '../../Site/Setup/SelectThemeMode';
+import { BiColorFill, BiBrush, BiUser } from "react-icons/bi";
 const NavLink = (props: any) => (
     <Link
         {...props}
@@ -55,6 +60,20 @@ function SidebarLeft({ app, fb }: { app: MyAppState, fb: FirebaseReducer.Reducer
                             </NavLink>
                         </li>
                     </ul>
+                    <ul className="theme">
+                        <li onClick={() => dispatch({
+                            ...new AppActions.SetShowModal(new ShowModal(true, 'action', "Select Theme Mode", <SelectThemeMode />, [], true
+                            ))
+                        })}><BiBrush /></li>
+                        <li onClick={() => dispatch({
+                            ...new AppActions.SetShowModal(new ShowModal(true, 'action', "Select Color Scheme", <SelectColorScheme />, [], true
+                            ))
+                        })}><BiColorFill /></li>
+                        <li onClick={() => dispatch({
+                            ...new AppActions.SetShowModal(new ShowModal(true, 'action', "Select Avatar", <SelectAvatar />, [], true
+                            ))
+                        })}><BiUser /></li>
+                    </ul>
                     {/* <div className="profile">
                         <Avatar url={getProfile(fb).photoURL} />
                         <h4>{getProfile(fb).displayName}</h4>
@@ -83,7 +102,7 @@ function SidebarLeft({ app, fb }: { app: MyAppState, fb: FirebaseReducer.Reducer
                     </NavLink>
                 </li>
             </ul>
-        </React.Fragment>
+        </React.Fragment >
 
     )
 }

@@ -69,7 +69,7 @@ export default function FirebaseTest(props: RouteComponentProps) {
                                     Delete
                     </button>
                             </div>
-                        </li>) : <p>No todo in the pst</p> : <p>Loading...</p>}
+                        </li>) : <p>No todo in the list</p> : <p>Loading...</p>}
             </ul>
         </div>
     )

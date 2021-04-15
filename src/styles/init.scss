@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Kiwi+Maru&display=swap");
+@import "./themes";
 @import "variables";
 @import "./ui/buttons";
 @import "./ui/navbar";
@@ -15,3 +16,4 @@
 @import "./content/content";
 @import "./ui/modal";
 @import "./ui/alert-message";
+@import "./setup/select-avatar";

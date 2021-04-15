@@ -1,14 +1,12 @@
-import React, { Component, useEffect } from 'react'
-import { navigate, Redirect } from '@reach/router';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { navigate } from '@reach/router';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../store';
-import { FirebaseReducer } from 'react-redux-firebase';
-import { TogglePreloader } from '../store/actions/app';
-import { Dispatch } from 'redux';
-import { log } from 'node:console';
+import { SetSetupModal, TogglePreloader } from '../store/actions/app';
+import { getProfile } from '../shared/state';
 
 interface Props {
-    children: JSX.Element[];
+    children: JSX.Element | JSX.Element[];
 }
 
 export default function AuthRoute(props: Props) {

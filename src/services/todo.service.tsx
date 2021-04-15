@@ -4,7 +4,7 @@ export interface Todo {
     name: string;
     date?: { seconds: number, nanoseconds: number }
 }
-const db = firebase.collection("/todos");
+const db = firebase.collection("todos");
 
 class TodoService {
     getAll() {

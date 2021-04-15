@@ -11,6 +11,7 @@ export class ShowModal {
         public type: "action" | "alert" = "alert",
         public title: string = "",
         public content: string | JSX.Element | JSX.Element[] | null = null,
-        public actions: ModalAction[] = []
+        public actions: ModalAction[] = [],
+        public hasCancel: boolean = true,
     ) { }
 }
