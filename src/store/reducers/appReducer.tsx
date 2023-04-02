@@ -4,7 +4,7 @@ import { ShowModal } from "../../models/UI/ShowModal";
 import { getPage, updateObject } from "../../shared/utilities";
 import * as AppActions from "../actions/app";
 const pages: CPage[] = [
-    new CPage("Home", "/", "Home - Sahre your dreams", ""),
+    new CPage("Home", "/", "Home - Share your dreams", ""),
     new CPage("Explore", "/explore", "Explore with DigiDreamz", ""),
     new CPage("Notifications", "/notifications", "Notifications - DigiDreamz", "")
 

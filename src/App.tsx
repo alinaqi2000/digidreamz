@@ -28,27 +28,40 @@ function App() {
     dispatch({ ...new AppActions.SetTheme() });
     dispatch({ ...new AppActions.SetCurrrentPage(window.location.pathname) });
   }, [dispatch]);
-  return (<div className={((getProfile(firebase).themeMode || "dim")) + " App " + (getProfile(firebase).colorScheme || "sienna")}>
-    <div onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })} className="overlay left" style={{ display: (app.opneLeftSideBar || app.opneRightSideBar) ? "block" : "none" }}></div>
-    <ShowModal {...app.showModal} />
-    <AlertMessage alertMessages={app.alertMessages} />
-    <SetupModal />
-    {/* <Preloader display={app.preloader} /> */}
-    <Title title={app.cPage.seo_title} />
-    <Router>
-      {/* Protected */}
-      <Home path="/" />
-      <Notifications path="/notifications" />
-      <Explore path="/explore" />
-      {/* Authentication */}
-      <SignUp path="/signup" />
-      <Login path="/login" />
-      {/* Testing */}
-      <FirebaseTest path="/test" />
-      <Utils path="/utils" />
-    </Router>
-  </div >
-
+  return (
+    <div
+      className={
+        (getProfile(firebase).themeMode || "dim") +
+        " App " +
+        (getProfile(firebase).colorScheme || "sienna")
+      }
+    >
+      <div
+        onClick={() => dispatch({ ...new AppActions.ToggleSidebars() })}
+        className="overlay left"
+        style={{
+          display:
+            app.opneLeftSideBar || app.opneRightSideBar ? "block" : "none",
+        }}
+      ></div>
+      <ShowModal {...app.showModal} />
+      <AlertMessage alertMessages={app.alertMessages} />
+      <SetupModal />
+      {/* <Preloader display={app.preloader} /> */}
+      <Title title={app.cPage.seo_title} />
+      <Router>
+        {/* Protected */}
+        <Home path="/" />
+        <Notifications path="/notifications" />
+        <Explore path="/explore" />
+        {/* Authentication */}
+        <SignUp path="/signup" />
+        <Login path="/login" />
+        {/* Testing */}
+        <FirebaseTest path="/test" />
+        <Utils path="/utils" />
+      </Router>
+    </div>
   );
 }
 
